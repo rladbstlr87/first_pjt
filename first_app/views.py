@@ -1,5 +1,7 @@
+import pandas as pd
 import random
 
+from faker import Faker
 from django.shortcuts import render
 
 # Create your views here.
@@ -15,9 +17,10 @@ def hello(request):
     return render(request, 'hello.html', context)
 
 def lunch(request):
-    menu = ['설렁탕', '국밥', '김치찜']
+    df = pd.read_excel("data/DAMF2.xlsx", sheet_name=None, engine='openpyxl')
+    data_dict = {sheet: data.to_dict(orient='records') for sheet, data in df.items()}
 
-    pick = random.choice(menu)
+    pick = random.choice(data_dict['menu'][1:16])
 
     context = {
         'pick': pick,
@@ -33,3 +36,33 @@ def lotto(request):
     }
 
     return render(request, 'lotto.html', context)
+
+def profile(request, username):
+    context = {
+        'username': username,
+    }
+
+    return render(request, 'profile.html', context)
+
+def cube(request, number):
+    result = number ** 3
+
+    context = {
+        'number': number,
+        'result': result,
+    }
+
+    return render(request, 'cube.html', context)
+
+def articles(request):
+    fake = Faker()
+    fake_articles = []
+
+    for i in range(100):
+        fake_articles.append(fake.text())
+
+    context = {
+        'fake_articles': fake_articles,
+    }
+
+    return render(request, 'articles.html', context)

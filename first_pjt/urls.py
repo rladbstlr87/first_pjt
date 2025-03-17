@@ -25,4 +25,10 @@ urlpatterns = [
     path('hello/', views.hello),
     path('lunch/', views.lunch),
     path('lotto/', views.lotto),
+    # variable 라우팅
+    path('profile/<username>/', views.profile),
+    path('cube/<int:number>/', views.cube),
+
+    path('articles/', views.articles),
+
 ]

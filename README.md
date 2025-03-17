@@ -39,5 +39,6 @@ INSTALLED_APPS = [
     '<app_이름>',
 ]
 ```
-## 2. urls.py
+## template & views
+- urls.py -> views.py -> @@@.html 무한반복
 
