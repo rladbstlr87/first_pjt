@@ -1,4 +1,3 @@
-import pandas as pd
 import random
 
 from faker import Faker
@@ -17,10 +16,9 @@ def hello(request):
     return render(request, 'hello.html', context)
 
 def lunch(request):
-    df = pd.read_excel("data/DAMF2.xlsx", sheet_name=None, engine='openpyxl')
-    data_dict = {sheet: data.to_dict(orient='records') for sheet, data in df.items()}
+    menu = ['설렁탕', '국밥', '돈까스']
 
-    pick = random.choice(data_dict['menu'][1:100])
+    pick = random.choice(menu)
 
     context = {
         'pick': pick,
