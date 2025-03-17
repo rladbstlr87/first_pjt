@@ -16,3 +16,28 @@
 ```shell
 pip install django
 ```
+
+2. 프로젝트 생성
+```shell
+$ django-admin startproject <프로젝트 이름> <경로>
+```
+
+3. 서버 실행
+```shell
+python manage.py runserver
+```
+
+4. 앱 생성
+```shell
+django-admin startapp <app이름>
+```
+
+5. 앱 등록(`settings.py`에서)
+```python
+INSTALLED_APPS = [
+    ...,
+    '<app_이름>',
+]
+```
+## 2. urls.py
+
