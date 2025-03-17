@@ -20,7 +20,7 @@ def lunch(request):
     df = pd.read_excel("data/DAMF2.xlsx", sheet_name=None, engine='openpyxl')
     data_dict = {sheet: data.to_dict(orient='records') for sheet, data in df.items()}
 
-    pick = random.choice(data_dict['menu'][1:16])
+    pick = random.choice(data_dict['menu'][1:100])
 
     context = {
         'pick': pick,
