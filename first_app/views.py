@@ -64,3 +64,16 @@ def articles(request):
     }
 
     return render(request, 'articles.html', context)
+
+def ping(request):
+    return render(request, 'ping.html')
+
+def pong(request):
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+
+    context = {
+        'title': title,
+        'content': content,
+    }
+    return render(request, 'pong.html', context)
